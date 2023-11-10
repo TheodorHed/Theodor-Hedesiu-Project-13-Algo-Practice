@@ -1,0 +1,40 @@
+From the Codewars platform I decided to do the Cat Years, Dog Years challenge.
+
+I was given the task of making a converter that could take an input of dog years and cat years and convert them into human years.
+The function takes 2 values (a value in cat years and one in dog years) and returns them converted into human years in a list.
+
+Example :
+------------------------------------------------------------
+Input: owned_cat_and_dog(56,64)
+Output: [10, 10]
+Explanation: Since 56 cat years would be 10 years in real life, and 64 dog years would also be 10,
+             the output should be a list made up of 10 and 10
+This is the code that I have made for the challenge :
+-------------------------------------------------------------
+def owned_cat_and_dog(cat_years, dog_years):
+    cat = cat_years
+    dog = dog_years
+
+    if cat < 24:
+      cat_years = 1
+    if dog < 24:
+      dog_years = 1
+    if cat == 24:
+      cat_years = 2
+    if dog == 24:
+      dog_years = 2
+    if cat > 24:
+      cat_years = int((cat - 24) / 4) + 2
+    if dog > 24:
+      dog_years = int((dog - 24) / 5) + 2
+    if cat < 15:
+        cat_years = 0
+    if dog < 15:
+        dog_years = 0
+    return [cat_years, dog_years]
+-------------------------------------------------------------
+So when testing the code with the above example, I get the desired output of [10, 10]
+-------------------------------------------------------------
+The function works by checking each value and adding : 1 to the real age for the first 15 years of the pet's age
+                                                       another 1 to the real age for the next 9 years of the pet's age
+                                                       another 4 years for cats and 5 years for dogs for every year after that

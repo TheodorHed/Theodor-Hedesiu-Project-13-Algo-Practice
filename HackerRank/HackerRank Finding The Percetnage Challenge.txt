@@ -1,0 +1,36 @@
+From the HackerRank platform I decided to do the Finding the Percentage challenge.
+
+I was given an dictionary with key value pairs containing the name of each student and their grades.
+The code is suppossed to output the average grade for the specified student. (averaged with 2 decimals at the end)
+So when given the number 3, the fucntion should output the average grades for student #3.
+
+Example :
+------------------------------------------------------------
+Input: 
+3
+student_list = {'Krishna': [67, 68, 69],
+                'Arjun': [70, 98, 63],
+                'Malika': [52, 56, 60]}
+Output: 56.00
+Explanation: Because I entered 3, the fucntion looks for the 3rd student, Malika in this case, and gives me the average of her grades
+
+This is the code that I have made for the challenge :
+-------------------------------------------------------------
+if __name__ == '__main__':
+    student_number=int(input())
+    student = dict()
+    
+    for _ in range(student_number):
+        name , *mark = input().split()
+        student[name] =list(map(float,mark))
+        
+    query_name = input()
+    for key , value  in student.items():
+        if key == query_name:
+            print(f'{sum((value))/3:.2f}')
+-------------------------------------------------------------
+So when testing the code with the above example, I get the desired output of 56.00
+-------------------------------------------------------------
+The function works by checking each student in the list and extracting the key value pair for the specific student number that was passed as the first argument.
+It then extracts the students grades using the duct function and returns an average of the students grades rounded by 2 decimals.
+
